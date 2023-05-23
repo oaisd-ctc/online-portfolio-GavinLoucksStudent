@@ -1,8 +1,20 @@
+html{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(236, 214, 184);
+}
+.container {
+    width: 95%;
+    background-color: white;
+    margin:1em 1em 1em 1em;
+    border-radius: 1em;
+    padding: .25em 2em .25em 2em;
+}
 
-.title-box {
-    width: 100%;
-    height: 100px;
-    background-color: red;
-    margin: 10px;
-    border-radius: 10px;
+.box {
+    width: 40%;
+    height: 25%;
+}
+
+#top-space{
+    margin-top: 8%;
 }
