@@ -4,7 +4,7 @@ html{
 }
 .container {
     width: 95%;
-   
+ 
     background-color: white;
     margin:1em 1em 1em 1em;
     border-radius: 1em;
@@ -12,31 +12,31 @@ html{
 }
 
 .box {
-    width: 40%;
+    width: 25%;
     height: 25%;
-    /* float: left; */
+    
 }
 
 .box img{
     float:right;
-    width: 400px;
-    height:550px;
+    width: 35em;
+    height:50em;
     margin: 0 9em 0 1em;
 }
 
 #top-space{
-    margin-top: 8%;
+    margin-top: 5%;
     
 }
 
-#move-left{
+#move-right{
     
-    margin-left:auto;
+   margin-left: auto;
     margin-right: 2em;
 }
 
 .divider {
-    width: 100%;
+    width: 50%;
      justify-content: center; 
     background-color: rgb(188, 207, 193);
     height: auto;
@@ -51,11 +51,55 @@ h1 {
 a {
     text-decoration: none;
     color:rgb(188, 207, 193);
+    
 }
 a:hover{
     color: black;
     transition: 400ms;
+   
 }
-h2 h3 h4 h5 h6 {
-    margin: 5000px;
+
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 95%;
+}
+
+.flex-box {
+    max-width: 25%;
+    margin: 1em;
+    padding: 1em;
+    
+    display: flex;
+}
+.flex-box img{
+    float:right;
+    width: 30em;
+    height:35em;
+    margin: 0 9em 0 1em;
+}
+
+#shift-right {
+    margin-left: 2%;
+}
+
+
+.link-box {
+    width: 3em;
+    height: 3em;
+    border-radius: 1em;
+    display: flex;
+    float: left;
+    margin: 2em;
+}
+
+.link-box-image {
+    object-fit: fill;
+    display: flex;
+}
+
+h5 {
+    margin-top: 5em;
 }
