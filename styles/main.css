@@ -71,7 +71,7 @@ a:hover{
     max-width: 25%;
     margin: 1em;
     padding: 1em;
-    
+   
     display: flex;
 }
 .flex-box img{
@@ -109,4 +109,8 @@ a:hover{
 
 h5 {
     margin-top: 5em;
+}
+
+#center {
+    justify-content: center;
 }
