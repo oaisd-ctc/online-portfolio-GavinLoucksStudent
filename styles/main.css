@@ -1,6 +1,9 @@
 html{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    font-weight: 100;
     background-color: rgb(236, 214, 184);
+    scroll-behavior: smooth;
 }
 .container {
     width: 95%;
@@ -17,6 +20,7 @@ html{
     
 }
 
+
 .box img{
     float:right;
     width: 35em;
@@ -32,7 +36,7 @@ html{
 #move-right{
     
    margin-left: auto;
-    margin-right: 2em;
+  
 }
 
 .divider {
@@ -42,10 +46,18 @@ html{
     height: auto;
     padding: 0 1em 0 1em;
     border-radius: 1em;
+    
 }
 
 h1 {
     color: white;
+}
+
+
+
+h1:hover {
+    scale: 1.1;
+    transition: 400ms;
 }
 
 a {
@@ -78,7 +90,7 @@ a:hover{
     float:right;
     width: 15em;
     height:15em;
-    margin: 0 10em 0 6em;
+    margin: 0 2em 0 2em;
     
 }
 
@@ -86,6 +98,7 @@ a:hover{
     background-color: rgba(128, 128, 128, 0.308);
    border-radius: 10em;
    transition: 500ms;
+   scale: 1.1;
 }
 
 #shift-right {
@@ -113,4 +126,24 @@ h5 {
 
 #center {
     justify-content: center;
+}
+
+#space {
+    margin-top:35em;
+}
+
+#padding {
+    padding: 3em;
+}
+
+#about_me {
+    color: white;
+}
+
+#experience {
+    color: white;
+}
+
+#certifications {
+    color: white;
 }
