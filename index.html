@@ -42,11 +42,9 @@
                     </div>
                 </div>
 
-                  <div class ="box"> 
+                  <div class ="box" style="width: 50%;"> 
                     
-                        I started my software career last year and have been improving and learning since.
-                        I like to workout, play golf, volleyball, and interact with friends and family. A couple things 
-                        I wish to accomplish in my career is to further my knowledge and develop my skillset.
+                       <h3> I started my software career last year and have been improving and learning since. I like to workout, play golf and volleyball, and interact with friends and family. A couple things I wish to accomplish in my career is to further my knowledge and develop my skillset.</h3>
                         
                     
 
@@ -62,26 +60,141 @@
                     <h2 id="experience">Experience</h2>
                 </div>
             </div>
-                <div class ="box">
+                
                    Throughout this course I learned a variety of coding languages mainly C#. I also learned
                     2D game development through tools like Unity.
                    
                    <h2>Projects</h2>
 
                    <a href = "https://github.com/oaisd-ctc/exploring-new-languages-GavinLoucksStudent" target="_blank">Link: </a>
-                   This project involved using many languages to complete it.
+                   This project involved using many languages to complete it. This is an example from my Python code.
+                   <div class="newBox" style="margin-left:-2em; border-top-right-radius: 4em; border-bottom-right-radius: 4em;"> <img src="Images/ExploringNewSS.jpg"> </div>
                    <br>
                    <br>
                    <a href ="https://github.com/oaisd-ctc/reinventing-the-wheel-emir-erdem-student" target="_blank">Link: </a>
                    This was a group project in which me and my partner recreated the methods you use everyday.
+                   <div class="newBox" style="margin-right:-2em; border-top-left-radius: 4em; border-bottom-left-radius: 4em;"><img src="Images/ReinventingSS.jpg"> </div>
                    <br>
                    <br>
                    <a href="https://github.com/oaisd-ctc/final-project-GavinLoucksStudent" target="_blank">Link: </a>
                    In this project I combined all I learned throughout the Unity 2D course to make a game.
+                   <div class="newBox" style="margin-left:-2em; border-top-right-radius: 4em; border-bottom-right-radius: 4em;" ><div id="unity-container" class="unity-desktop">
+                    <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+                    <div id="unity-loading-bar">
+                      <div id="unity-logo"></div>
+                      <div id="unity-progress-bar-empty">
+                        <div id="unity-progress-bar-full"></div>
+                      </div>
+                    </div>
+                    <div id="unity-warning"> </div>
+                    <div id="unity-footer">
+                      <div id="unity-webgl-logo"></div>
+                      <div id="unity-fullscreen-button"></div>
+                      
+                    </div>
+                  </div>
+                  <script>
+              
+                    var container = document.querySelector("#unity-container");
+                    var canvas = document.querySelector("#unity-canvas");
+                    var loadingBar = document.querySelector("#unity-loading-bar");
+                    var progressBarFull = document.querySelector("#unity-progress-bar-full");
+                    var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+                    var warningBanner = document.querySelector("#unity-warning");
+              
+                    // Shows a temporary message banner/ribbon for a few seconds, or
+                    // a permanent error message on top of the canvas if type=='error'.
+                    // If type=='warning', a yellow highlight color is used.
+                    // Modify or remove this function to customize the visually presented
+                    // way that non-critical warnings and error messages are presented to the
+                    // user.
+                    function unityShowBanner(msg, type) {
+                      function updateBannerVisibility() {
+                        warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+                      }
+                      var div = document.createElement('div');
+                      div.innerHTML = msg;
+                      warningBanner.appendChild(div);
+                      if (type == 'error') div.style = 'background: red; padding: 10px;';
+                      else {
+                        if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+                        setTimeout(function() {
+                          warningBanner.removeChild(div);
+                          updateBannerVisibility();
+                        }, 5000);
+                      }
+                      updateBannerVisibility();
+                    }
+              
+                    var buildUrl = "Build";
+                    var loaderUrl = buildUrl + "/DungeonCrawl.loader.js";
+                    var config = {
+                      dataUrl: buildUrl + "/DungeonCrawl.data",
+                      frameworkUrl: buildUrl + "/DungeonCrawl.framework.js",
+                      codeUrl: buildUrl + "/DungeonCrawl.wasm",
+                      streamingAssetsUrl: "StreamingAssets",
+                      companyName: "DefaultCompany",
+                      productName: "Dungeon Crawl",
+                      productVersion: "1.0",
+                      showBanner: unityShowBanner,
+                    };
+              
+                    // By default Unity keeps WebGL canvas render target size matched with
+                    // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+                    // Set this to false if you want to decouple this synchronization from
+                    // happening inside the engine, and you would instead like to size up
+                    // the canvas DOM size and WebGL render target sizes yourself.
+                    // config.matchWebGLToCanvasSize = false;
+              
+                    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                      // Mobile device style: fill the whole browser client area with the game canvas:
+              
+                      var meta = document.createElement('meta');
+                      meta.name = 'viewport';
+                      meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+                      document.getElementsByTagName('head')[0].appendChild(meta);
+                      container.className = "unity-mobile";
+                      canvas.className = "unity-mobile";
+              
+                      // To lower canvas resolution on mobile devices to gain some
+                      // performance, uncomment the following line:
+                      // config.devicePixelRatio = 1;
+              
+              
+                    } else {
+                      // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+              
+                      canvas.style.width = "960px";
+                      canvas.style.height = "600px";
+                    }
+              
+                    loadingBar.style.display = "block";
+              
+                    var script = document.createElement("script");
+                    script.src = loaderUrl;
+                    script.onload = () => {
+                      createUnityInstance(canvas, config, (progress) => {
+                        progressBarFull.style.width = 100 * progress + "%";
+                            }).then((unityInstance) => {
+                              loadingBar.style.display = "none";
+                              fullscreenButton.onclick = () => {
+                                unityInstance.SetFullscreen(1);
+                              };
+                            }).catch((message) => {
+                              alert(message);
+                            });
+                          };
+              
+                    document.body.appendChild(script);
+              
+                  </script></div>
                    <br>
                    <br>
+
+                   
                   
-                </div>
+                
+               
                 
                 <div id ="space">
                     <div class="divider" id="top-space">
